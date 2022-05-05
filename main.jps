@@ -27,6 +27,10 @@ onUninstall:
   cmd [*]:
     - yum remove -y clamav
     - yum remove -y epel-release 
+    - cmd[${targetNodes.nodeGroup}]: |-
+        rm -rf /var/log/clamav
+        rm -rf /var/lib/clamav
+        rm -rf /usr/share/clamav
   user: root
   sayYes: true
 
